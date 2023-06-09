@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Change Example</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cooper+Black&display=swap');
+
+        body {
+            font-family: 'Cooper Black', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: red;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 0;
+            opacity: 0;
+            animation: fadeSpin 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeSpin {
+            0% {
+                opacity: 0;
+                transform: rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: rotate(360deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate(360deg);
+            }
+        }
+
+        .image-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        #image-1:checked ~ .image-container .image-1,
+        #image-2:checked ~ .image-container .image-2,
+        #image-3:checked ~ .image-container .image-3 {
+            opacity: 1;
+        }
+
+        .image-button {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .image-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pizza Time ! :D</h1>
+    
+    <input type="radio" name="image" id="image-1" checked>
+    <input type="radio" name="image" id="image-2">
+    <input type="radio" name="image" id="image-3">
+    
+    <div class="image-container">
+        <img class="image image-1" src="image1.jpg" alt="Image 1">
+        <img class="image image-2" src="image2.jpg" alt="Image 2">
+        <img class="image image-3" src="image3.jpg" alt="Image 3">
+    </div>
+    
+    <div class="button-container">
+        <label for="image-1" class="image-button"><img src="button1.jpg" alt="Button 1"></label>
+        <label for="image-2" class="image-button"><img src="button1.jpg" alt="Button 2"></label>
+        <label for="image-3" class="image-button"><img src="button1.jpg" alt="Button 3"></label>
+    </div>
+</body>
+</html>
